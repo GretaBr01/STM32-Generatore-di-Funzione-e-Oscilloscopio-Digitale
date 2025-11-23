@@ -26,12 +26,12 @@ Progetto per Nucleo STM32 che implementa un generatore di funzioni DAC e un semp
 
 ## Hardware
 - STM32 Nucleo-64 ST_NUCLEO64_G474RE.
-- Display OLED SSD1306 128x64 I2C.
+- Display OLED SSD1306 128x64.
 - LED RGB.
 - Encoder rotante con pulsante.
 - Pulsante ON/OFF.
 
-## Mappatura pin dettagliata (valori usati / suggeriti)
+## Mappatura pin
 Di seguito sono riportati i pin definiti nel codice (o suggeriti come mapping comune). Verificare sempre i file sorgente (outsetting.c, sampler.c, encoder_manager.c, main.c) e adattare al cablaggio reale.
 
 - I2C (SSD1306)
