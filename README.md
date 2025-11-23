@@ -24,8 +24,8 @@ Progetto per Nucleo STM32 che implementa un generatore di funzioni DAC e un semp
 - [ssd1306/ssd1306_font.c](ssd1306/ssd1306_font.c), [ssd1306/ssd1306_font_7_10.c](ssd1306/ssd1306_font_7_10.c) — dati font.
 - [cfg/halconf.h](cfg/halconf.h), [cfg/chconf.h](cfg/chconf.h), [cfg/mcuconf.h](cfg/mcuconf.h) — configurazioni ChibiOS/HAL.
 
-## Requisiti hardware
--Scheda MCU: STM32 Nucleo-64 compatibile (target del Makefile: ST_NUCLEO64_G474RE).
+## Hardware
+- STM32 Nucleo-64 ST_NUCLEO64_G474RE.
 - Display OLED SSD1306 128x64 I2C.
 - LED RGB.
 - Encoder rotante con pulsante.
