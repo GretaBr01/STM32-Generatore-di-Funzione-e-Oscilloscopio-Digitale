@@ -25,11 +25,42 @@ Progetto per Nucleo STM32 che implementa un generatore di funzioni DAC e un semp
 - [cfg/halconf.h](cfg/halconf.h), [cfg/chconf.h](cfg/chconf.h), [cfg/mcuconf.h](cfg/mcuconf.h) — configurazioni ChibiOS/HAL.
 
 ## Requisiti hardware
-- STM32 Nucleo (board definita: ST_NUCLEO64_G474RE in [Makefile](Makefile)).
-- Connessione I2C per SSD1306 (PB8=SCL, PB9=SDA come in [main.c](main.c)).
-- DAC/ADC pin configurati in codice ([outsetting.c](outsetting.c), [sampler.c](sampler.c)).
+-Scheda MCU: STM32 Nucleo-64 compatibile (target del Makefile: ST_NUCLEO64_G474RE).
+- Display OLED SSD1306 128x64 I2C.
+- LED RGB.
 - Encoder rotante con pulsante.
-- Pulsante ON/OFF (collegato a PA10 come in [main.c](main.c)).
+- Pulsante ON/OFF.
+
+## Mappatura pin dettagliata (valori usati / suggeriti)
+Di seguito sono riportati i pin definiti nel codice (o suggeriti come mapping comune). Verificare sempre i file sorgente (outsetting.c, sampler.c, encoder_manager.c, main.c) e adattare al cablaggio reale.
+
+- I2C (SSD1306)
+  - SCL → PB8
+  - SDA → PB9
+
+- LED (definiti in main.c)
+  - R LED → PB10
+  - G LED → PA8
+  - B LED → PA9
+
+- Pulsante ON/OFF (definito in main.c)
+  - BUTTON ON/OFF → PA10 
+  - Nota: input pull-up, evento su entrambi i fronti
+
+- DAC (uscita generatore)
+  - DAC OUT1 → PA4  (DAC1_OUT1)
+  - Nota: mapping comune, verificare outsetting.c
+
+- ADC (ingresso oscilloscopio)
+  - ADC IN (scope input) → PA0 (ADC_IN1)
+  - Nota: adattare a sampler.c
+
+- Encoder
+  - ENC_CLK → (es.) PB5
+  - ENC_DT → (es.) PB3
+  - ENC_SW → (es.) PB4
+  - Nota: i pin effettivi sono definiti in encoder_manager.h;
+
 
 ## Uso
 - Premere pulsante ON/OFF (PA10) per attivare/disattivare sistema.
