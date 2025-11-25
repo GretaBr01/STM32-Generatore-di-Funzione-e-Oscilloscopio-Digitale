@@ -44,7 +44,7 @@ Di seguito sono riportati i pin definiti nel codice (o suggeriti come mapping co
   - B LED → PA9
 
 - Pulsante ON/OFF (definito in main.c)
-  - BUTTON ON/OFF → PA10 
+  - BUTTON ON/OFF → PC7 
   - Nota: input pull-up, evento su entrambi i fronti
 
 - DAC (uscita generatore)
@@ -56,14 +56,14 @@ Di seguito sono riportati i pin definiti nel codice (o suggeriti come mapping co
   - Nota: adattare a sampler.c
 
 - Encoder
-  - ENC_CLK → (es.) PB5
-  - ENC_DT → (es.) PB3
-  - ENC_SW → (es.) PB4
+  - ENC_CLK →  PB5
+  - ENC_DT  →  PB3
+  - ENC_SW  →  PB4
   - Nota: i pin effettivi sono definiti in encoder_manager.h;
 
 
 ## Uso
-- Premere pulsante ON/OFF (PA10) per attivare/disattivare sistema.
+- Premere pulsante ON/OFF per attivare/disattivare sistema.
 - Quando acceso, i thread vengono avviati automaticamente:
   - initOut(), startOut() => DAC
   - startADCThread() => campionamento ADC
