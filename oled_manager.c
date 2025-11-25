@@ -196,6 +196,8 @@ static THD_FUNCTION(OledDisplay, arg) {
         ssd1306UpdateScreen(&SSD1306D1);
         chThdSleepMilliseconds(50);
     }
+    ssd1306FillScreen(&SSD1306D1, 0x00);
+    ssd1306UpdateScreen(&SSD1306D1);
 }
 
 void startOledThread(void) {

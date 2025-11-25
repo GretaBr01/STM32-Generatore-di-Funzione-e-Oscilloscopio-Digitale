@@ -4,9 +4,9 @@
 #include "ch.h"
 #include "hal.h"
 
-#define Enc_SW PAL_LINE(GPIOB, 4U)
-#define Enc_A  PAL_LINE(GPIOB, 5U)
-#define Enc_B  PAL_LINE(GPIOB, 3U)
+#define Enc_SW PAL_LINE(GPIOB, 4U)  //D5
+#define Enc_A  PAL_LINE(GPIOB, 5U)  //D4
+#define Enc_B  PAL_LINE(GPIOB, 3U)  //D3
 
 
 void startEncoderThread(void);

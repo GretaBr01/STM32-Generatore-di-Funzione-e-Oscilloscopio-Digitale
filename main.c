@@ -30,8 +30,7 @@
 #define GLED_LINE   PAL_LINE( GPIOA, 8U ) // D4
 #define BLED_LINE   PAL_LINE( GPIOA, 9U ) // D5
 
-//#define BTN_ON_OFF_LINE PAL_LINE(GPIOC, 13U)
-#define BTN_ON_OFF_LINE PAL_LINE(GPIOA, 10U)
+#define BTN_ON_OFF_LINE PAL_LINE(GPIOC, 7U) //D9
 
 #define ARRAY_LEN(a)            (sizeof(a)/sizeof(a[0]))
 
@@ -123,15 +122,13 @@ int main(void) {
                  PAL_STM32_PUPDR_PULLUP);
 
   /* Enabling events on both edges of the button line.*/
+  // Configurar PC7 como ENTRADA con resistencia PULL-DOWN interna
+  palSetLineMode(BTN_ON_OFF_LINE, PAL_MODE_INPUT_PULLDOWN);
   palEnableLineEvent( BTN_ON_OFF_LINE, PAL_EVENT_MODE_BOTH_EDGES);
   palSetLineCallback( BTN_ON_OFF_LINE, button_on_off_cb, NULL);
   chThdCreateStatic(waStatusLED, sizeof(waStatusLED), NORMALPRIO + 1, thdStatusLED, NULL );
-
   palSetLineMode(LINE_LED,PAL_MODE_OUTPUT_PUSHPULL);
 
-  palSetLineMode(BTN_ON_OFF_LINE, PAL_MODE_INPUT_PULLUP);
-  palEnableLineEvent(BTN_ON_OFF_LINE, PAL_EVENT_MODE_BOTH_EDGES);
-  palSetLineCallback(BTN_ON_OFF_LINE, button_on_off_cb, NULL);
 
   while (true ) {
     updateScope();
